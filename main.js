@@ -1,15 +1,6 @@
-  let carouselParent = null;
-  let prevIndicator = null;
-
-  function createCarouselWrapper() {
-
-    let newBlock = document.createElement('div');
-    newBlock.setAttribute('class', 'carousel');
-    newBlock.setAttribute('id', 'carousel');
-    document.querySelector('body').appendChild(newBlock);
-
-    carouselParent = newBlock;
-  }
+ function foundCarouselWrapper() {
+  carouselParent = document.querySelector('#carousel');
+ }
   
   // <ul> 
   // <li> <a> </a> </li>
@@ -106,7 +97,7 @@
       margin: 5px;
       border-radius: 50%;
       background-color: blue;
-      border:2px solid yellow; 
+      border:2px solid blue; 
     }`;
     styleContainer.innerHTML = styleCode;
     carouselParent.appendChild(styleContainer);
@@ -130,7 +121,7 @@
   }
 
   function createCarousel(n) {
-    createCarouselWrapper();
+    foundCarouselWrapper();
     createSlides(n);
     createIndicators(n);
     createControls(nthControls = 3);
@@ -138,3 +129,4 @@
     clickListener();
   }
   createCarousel(5);
+
